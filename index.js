@@ -18,7 +18,7 @@ const dialogflowFulfillment = (request, response) => {
     const agent = new WebhookClient({request, response})
 
     function sayHello(agent){
-        agent.add("Hello, this was a nice tutorial by axlewebtech")
+        agent.add("Hello, Sang")
     }
 
     let intentMap = new Map();
