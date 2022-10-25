@@ -36,16 +36,13 @@ const dialogflowFulfillment = (request, response) => {
     }
 
     function turnonled(agent){
-        let updates = {};
-        updates['devices/device1'] = true;
-        database.ref().update(updates);
+       
+        database.ref('devices/device1').set(true);
         agent.add("Đã mở đèn");
     }
 
     function turnoffled(agent){
-        let updates = {};
-        updates['devices/device1'] = false;
-        database.ref().update(updates);
+        database.ref('devices/device1').set(false);
         agent.add("Đã tắt đèn");
     }
 
