@@ -38,14 +38,14 @@ const dialogflowFulfillment = (request, response) => {
     function turnonled(agent){
         let updates = {};
         updates['devices/device1'] = true;
-        firebase.database().ref().update(updates);
+        database.ref().update(updates);
         agent.add("Đã mở đèn");
     }
 
     function turnoffled(agent){
         let updates = {};
         updates['devices/device1'] = false;
-        firebase.database().ref().update(updates);
+        database.ref().update(updates);
         agent.add("Đã tắt đèn");
     }
 
