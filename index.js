@@ -74,8 +74,9 @@ const dialogflowFulfillment = (request, response) => {
         database.ref('devices/device4').once('value')
         .then(function(snapshot) {
             data = snapshot.val() 
+            agent.add(data);
         })
-        agent.add(data);
+       
     }
 
     let intentMap = new Map();
