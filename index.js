@@ -71,10 +71,10 @@ const dialogflowFulfillment = (request, response) => {
     function getDHT(agent){
         //database.ref('devices/device4').set(false);
         let data = "dht";
-        database.ref('devices/device4').once('value')
+        return axios.database.ref('devices/device4').once('value')
         .then(function(snapshot) {
             data = snapshot.val() 
-            agent.add(data);
+            agent.add(snapshot.val());
         })
        
     }
