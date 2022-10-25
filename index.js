@@ -38,12 +38,12 @@ const dialogflowFulfillment = (request, response) => {
     function turnonled(agent){
        
         database.ref('devices/device1').set(true);
-        agent.add("Đã mở đèn");
+        agent.add("the light already turn on");
     }
 
     function turnoffled(agent){
         database.ref('devices/device1').set(false);
-        agent.add("đã tắt đèn");
+        agent.add("the light already turn on");
     }
 
     let intentMap = new Map();
