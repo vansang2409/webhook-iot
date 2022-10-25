@@ -21,8 +21,13 @@ const dialogflowFulfillment = (request, response) => {
         agent.add("Hello, Sang")
     }
 
+    function turnonled(agent){
+        agent.add("Đã mở đèn");
+    }
+
     let intentMap = new Map();
-    intentMap.set("Default Welcome Intent", sayHello)
-    agent.handleRequest(intentMap)
+    intentMap.set("Default Welcome Intent", sayHello);
+    intentMap.set("mở đèn", turnonled);
+    agent.handleRequest(intentMap);
 
 }
