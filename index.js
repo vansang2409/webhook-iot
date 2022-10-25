@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const {WebhookClient} = require('dialogflow-fulfillment');
-var firebase = require('firebase')
+const firebase = require('firebase')
 
 const firebaseConfig = {
     apiKey: "AIzaSyCv49tXi0UC27uLzyUnqTV9c1bOWVWHrVE",
@@ -43,7 +43,7 @@ const dialogflowFulfillment = (request, response) => {
 
     function turnoffled(agent){
         database.ref('devices/device1').set(false);
-        agent.add("Đã tắt đèn");
+        agent.add("đã tắt đèn");
     }
 
     let intentMap = new Map();
