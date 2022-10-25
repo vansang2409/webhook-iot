@@ -43,7 +43,7 @@ const dialogflowFulfillment = (request, response) => {
 
     function turnoffled(agent){
         database.ref('devices/device1').set(false);
-        agent.add("the light already turn on");
+        agent.add("the light already turn off");
     }
 
     let intentMap = new Map();
