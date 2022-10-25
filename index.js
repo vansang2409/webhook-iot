@@ -70,15 +70,13 @@ const dialogflowFulfillment = (request, response) => {
 
     function getDHT(agent){
         //database.ref('devices/device4').set(false);
-        let data = "dht";
-       database.ref('devices/device4').once('value')
-        .then(function(snapshot) {
-            data = snapshot.val() 
-            return agent.add(snapshot.val());
-        })
-        .catch( err => {
-          return agent.add('Something went wrong.')
-        });
+        agent.add('Something went wrong.')
+        database.ref('devices/device4').once('value')
+            .then(function(snapshot) {
+            
+                return agent.add(snapshot.val());
+            })
+            
        
     }
 
