@@ -46,10 +46,52 @@ const dialogflowFulfillment = (request, response) => {
         agent.add("the light already turn off");
     }
 
+    function turnonfan(agent){
+       
+        database.ref('devices/device2').set(true);
+        agent.add("the fan already turn on");
+    }
+
+    function turnofffan(agent){
+        database.ref('devices/device2').set(false);
+        agent.add("the fan already turn off");
+    }
+
+    function turnondoor(agent){
+       
+        database.ref('devices/device3').set(true);
+        agent.add("the door already turn on");
+    }
+
+    function turnoffdoor(agent){
+        database.ref('devices/device3').set(false);
+        agent.add("the door already turn off");
+    }
+
+    function getDHT(agent){
+        //database.ref('devices/device4').set(false);
+        let data = "dht";
+        database.ref('devices/device4').once('value')
+        .then(function(snapshot) {
+            data = snapshot.val() 
+        })
+        agent.add(data);
+    }
+
     let intentMap = new Map();
     intentMap.set("Default Welcome Intent", sayHello);
+
     intentMap.set("turnonled", turnonled);
     intentMap.set("turnoffled", turnoffled);
+
+    intentMap.set("turnonfan", turnonfan);
+    intentMap.set("turnofffan", turnofffan);
+
+    intentMap.set("turnondoor", turnondoor);
+    intentMap.set("turnoffdoor", turnoffdoor);
+
+    intentMap.set("dht", getDHT);
+
     agent.handleRequest(intentMap);
 
 }
