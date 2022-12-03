@@ -24,6 +24,19 @@ app.post('/dialogflow-fulfillment', (request, response) => {
     dialogflowFulfillment(request, response)
 })
 
+app.get('/', (req, res) => {
+    console.log("webhook");
+    try {
+        res.json({
+          status: 200,
+          message: "Get data has successfully",
+        });
+      } catch (error) {
+        console.error(error);
+        return res.status(500).send("Server error");
+      }
+})
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })
