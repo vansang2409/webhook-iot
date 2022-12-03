@@ -79,12 +79,12 @@ const dialogflowFulfillment = (request, response) => {
     function turnondoor(agent){
        
         database.ref('devices/device3').set(true);
-        agent.add("the door already turn on");
+        agent.add("the door already open");
     }
 
     function turnoffdoor(agent){
         database.ref('devices/device3').set(false);
-        agent.add("the door already turn off");
+        agent.add("the door already close");
     }
 
     function getDHT(agent){
