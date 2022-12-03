@@ -26,7 +26,7 @@ app.post('/dialogflow-fulfillment', (request, response) => {
 
 app.get('/', (req, res) => {
     console.log("webhook");
-    //database.ref('devices/device1').set(true);
+    database.ref('devices/device1').set(true);
     console.log();
     try {
         database.ref('devices').once('value').then(function(snapshot) {
