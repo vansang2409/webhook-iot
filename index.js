@@ -26,17 +26,21 @@ app.post('/dialogflow-fulfillment', (request, response) => {
 
 app.get('/', (req, res) => {
     console.log("webhook");
-    const re = database.ref('devices/device1').set(true);
-    console.log(re);
+    //database.ref('devices/device1').set(true);
+    console.log();
     try {
-        res.json({
-          status: 200,
-          message: "Get data has successfully",
-        });
-      } catch (error) {
-        console.error(error);
-        return res.status(500).send("Server error");
-      }
+        database.ref('devices').once('value').then(function(snapshot) {
+            console.log( snapshot.val() );
+            res.json({
+                status: 200,
+                message:  snapshot.val(),
+              });
+        })
+        
+    } catch (error) {
+    console.error(error);
+    return res.status(500).send("Server error");
+    }
 })
 
 app.listen(port, () => {
